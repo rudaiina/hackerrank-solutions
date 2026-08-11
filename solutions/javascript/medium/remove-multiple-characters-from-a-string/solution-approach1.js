@@ -7,6 +7,12 @@
 // Language    javascript
 // Status      Accepted
 // Submitted   2026-08-11, 11:08 a.m.
+// Technique   sequential-string-slicing-with-offset
+// Time        O(N * |S|)
+// Space       O(|S|)
+// Insight     The algorithm maintains a running count of removed characters to adjust the target index dynamically, ensuring each subsequent removal targets the correct character in the shrinking string.
+// Interview   Before: "I would iterate through the positions and remove characters using splice." After: "Since strings are immutable in JavaScript, I use slice to create new strings, resulting in O(N * |S|) time complexity, which is efficient enough given the constraint |S| ≤ 1000."
+// Pitfalls    (1) Failing to decrement the target index by the number of previously removed characters leads to deleting the wrong indices.  (2) Ignoring the requirement to validate each position against the current string length can cause out-of-bounds errors.  (3) Assuming the input positions remain static relative to the original string instead of the modified string.
 // ──────────────────────────────────────────────────
 
 function processData(input) {
