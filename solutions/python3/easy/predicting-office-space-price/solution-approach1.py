@@ -7,6 +7,12 @@
 # Language    python3
 # Status      Accepted
 # Submitted   2026-08-13, 10:33 a.m.
+# Technique   polynomial-feature-linear-regression
+# Time        O(N * F^3)
+# Space       O(N * F^3)
+# Insight     The implementation maps input features into a higher-dimensional space using a third-degree polynomial expansion to capture non-linear relationships before applying ordinary least squares regression.
+# Interview   Before: "I would use simple linear regression to model the office prices." After: "Since the relationship is non-linear, I use PolynomialFeatures with degree 3 to transform the input, achieving O(N * F^3) complexity, which effectively captures the polynomial order less than 4 constraint."
+# Pitfalls    (1) Failing to account for the F+1 column structure when parsing the training data, which leads to incorrect feature and target alignment.  (2) Assuming a linear relationship when the problem explicitly states the price is a polynomial function of order less than 4.
 # ──────────────────────────────────────────────────
 
 import sys
